@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/style.css">
-    <title>FEC Demo</title>
+    <style>
+        .main-container {
+            width: 80vh;
+        }
+    </style>
+
+
 </head>
 
-<body>
-    <div id="Info"></div>
-    <div id="CountDown"></div>
+<body class="main-container">
+    <link rel="stylesheet" href="http://localhost:1338/style.css">
+    <link rel="stylesheet" href="../../reviews-module/client/dist/styles.css">
+    <div class="main-container" id="bookings">not mounted</div>
+    <div class="main-container" id="review">also not mounted</div>
     <div id="Related"></div>
     <div id="Reviews"></div>
     <script src="/lib/react.development.js"></script>
     <script src="/lib/react-dom.development.js"></script>
-    <script src="http://localhost:8080/app.js"></script>
-    <script src="http://localhost:3000/app.js"></script>
-    <script src="http://localhost:1337/app.js"></script>
+    <script src="http://localhost:1338/availability"></script>
+    <script src="http://localhost:1337/rooms/bundle.js"></script>
     <!-- <script src="http://localhost:3004/app.js"></script> -->
     <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
     <script>
+        console.log(typeof bookings)
+        console.log(typeof review)
         ReactDOM.render(
-            React.createElement(Info),
-            document.getElementById('Info')
+            React.createElement(bookings),
+            document.getElementById('bookings')
         );
         ReactDOM.render(
-            React.createElement(CountDown),
-            document.getElementById('CountDown')
-        );
-        ReactDOM.render(
-            React.createElement(Related),
-            document.getElementById('Related')
-        );
-        ReactDOM.render(
-            React.createElement(Reviews),
-            document.getElementById('Reviews')
+            React.createElement(review),
+            document.getElementById('review')
         );
     </script>
 </body>
